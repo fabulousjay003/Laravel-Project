@@ -1,12 +1,16 @@
 <x-layout>
     <x-slot:heading>
-   Job Listing
+        Job Listing
     </x-slot:heading>
 
-    @foreach ($jobs as $job)
+    <ul>
+        @foreach ($jobs as $job)
+            <li>
+                <a href='/jobs/{{ $job['id'] }}'>
+            <li><strong>{{ $job['title'] }}</strong> Pays {{ $job['salary'] }} per year.</li>
+            </a>
+            </li>
+        @endforeach
+    </ul>
 
-<li><strong>{{ $job['title'] }}</strong>  Pays  {{$job ['salary']}} per year.</li>
-    
-    @endforeach
- 
 </x-layout>

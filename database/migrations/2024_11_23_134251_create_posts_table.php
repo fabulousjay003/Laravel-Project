@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('job_type');
+            $table->string('post_type');
             $table->timestamps();
         });
     }

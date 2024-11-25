@@ -13,10 +13,12 @@ Route::get('/', function () {
 
 
 Route::get('/jobs', function () {
+    $jobs = job::with('employer')->get(); //eager loading
     return  view(
         'jobs',
         [
-            'jobs' => Job::all()
+            // 'jobs' => Job::all()
+            "jobs"  => $jobs
         ]
 
     );

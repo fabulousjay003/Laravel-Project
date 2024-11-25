@@ -9,9 +9,16 @@ class Employer extends Model
 {
     /** @use HasFactory<\Database\Factories\EmployerFactory> */
     use HasFactory;
+    protected $table = 'employers';
+    protected $fillable = ['name', 'company'];
 
-    public function jobs()
-    {
-        return $this->hasMany(Job::class);
-    }
+    // public function jobs()
+    // {
+    //     return $this->hasMany(Job::class);
+    // }
+
+    // public function post()
+    // {
+    //     return $this->hasMany(Post::class);
+    // }
 }

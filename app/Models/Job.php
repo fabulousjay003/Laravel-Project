@@ -11,7 +11,7 @@ class Job extends Model
 {
     use Hasfactory;
     protected $table = 'job_listings';
-    protected $fillable = ['title', 'salary', 'employer_id'];
+    protected $fillable = ['employer_id', 'title', 'salary',];
 
     public function employer()
     {

@@ -20,8 +20,12 @@
 
                                 <input type="text" name="title" id="title"
                                     class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
-                                    placeholder="Software Developer">
+                                    placeholder="Software Developer" required>
+
                             </div>
+                            @error('title')
+                                <p class='text-xs text-red-500'>{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
@@ -35,15 +39,33 @@
 
                                 <input type="text" name="salary" id="salary"
                                     class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm/6"
-                                    placeholder="$100,000 per year">
+                                    placeholder="$100,000 per year" required>
                             </div>
+
+                            @error('salary')
+                                <p class="text-xs text-red-500 italic">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
                 </div>
+
+                <div class='mt-10'>
+                    {{-- @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class='text-red-500 italic'>{{ $error }}</li>
+                            @endforeach
+
+                        </ul>
+                    @endif --}}
+                </div>
+
             </div>
+
         </div>
 
+        </ul>
         <div class="mt-6 flex items-center justify-end gap-x-6">
             <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
             <button type="submit"

@@ -2,23 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employer extends Model
 {
     /** @use HasFactory<\Database\Factories\EmployerFactory> */
     use HasFactory;
     protected $table = 'employers';
-    protected $fillable = ['name', 'company'];
+    protected $fillable = ['name', 'user_id'];
 
-    // public function jobs()
-    // {
-    //     return $this->hasMany(Job::class);
-    // }
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 
-    // public function post()
-    // {
-    //     return $this->hasMany(Post::class);
-    // }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
